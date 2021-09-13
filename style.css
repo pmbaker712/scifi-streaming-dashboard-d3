@@ -95,6 +95,7 @@ p {
   opacity: 0;
   padding: 10px;
   font-family: courier;
+  font-weight: bold;
   color: white;
   background-color: #292629;
   border: 1px solid white;
