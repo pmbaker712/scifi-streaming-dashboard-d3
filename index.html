@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title id="title">Sci-Fi Streaming Dashboard</title>
+	<link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header">
+      <h1>Sci-Fi Streaming Dashboard</h1>
+      <h3>
+        <span class="button" id="netflix">Netflix</span>
+        <span class="button" id="hulu">Hulu</span>
+        <span class="button" id="prime">Prime Video</span>
+        <span class="button" id="disney">Disney+</spa>        
+      </h3>
+      <p id="imdb-kpi"></p>
+      <p id="rt-kpi"></p>
+    </div>
+    <div class="main-container">
+      <div class="container-left">
+      </div>
+      <div class="container-right">
+        <p>Mouseover scatterplot to see details here:<p>
+        <div id="tooltip">
+        </div>
+      </div>
+    </div>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+	<script  src="./script.js"></script>
+  </body>
+</html>

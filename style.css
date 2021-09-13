@@ -1,0 +1,113 @@
+body {
+  background-color: #202020;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;  
+  text-align: center;
+  color: #99ffff;
+  margin-top: 2px;
+}
+
+h3 {
+  font-family: courier, sans-serif;  
+  text-align: center;
+  color: white;
+  -webkit-user-select: none;     
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+p {
+  font-family: courier;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin: 3px;
+}
+
+.button {
+  color: black;
+  padding: 3px;
+  margin: 3px;
+  border: 3px solid white;
+  cursor: pointer;
+}
+
+#netflix {
+  background-color: #ff7777; 
+}
+
+#hulu {
+  background-color: #55ff55; 
+}
+
+#prime {
+  background-color: #99ffff; 
+}
+#disney {
+  background-color: #aaaaff; 
+}
+
+.header {
+  padding: 10px;
+  width: 800px;
+  padding: 20px;
+  margin: auto;
+}
+
+.main-container {
+  height: 500px;
+  width: 920px;
+  margin: auto;
+}
+
+.container-left {
+  height: 90%;
+  width: 55%;
+  padding: 20px;
+  margin-left: 32px;
+  float: left;
+  background-color:#292629;
+  border: 1px solid #99ffff;
+}
+
+.container-right {
+  height: 90%;
+  width: 25%;
+  float: left;
+  padding: 20px;
+  margin-left: 32px;
+  background-color:#292629;
+  border: 1px solid #99ffff;
+}
+
+.bar:hover {
+  fill: #ee9999;
+}
+
+#tooltip {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  margin-top: 15px;
+  opacity: 0;
+  padding: 10px;
+  font-family: courier;
+  color: white;
+  background-color: #292629;
+  border: 1px solid white;
+}
+
+.axis line{
+  stroke: #99ffff;
+}
+
+.axis path{
+  stroke: #99ffff;
+}
+
+.axis text{
+  fill: #cccc00;
+}
