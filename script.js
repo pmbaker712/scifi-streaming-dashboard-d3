@@ -1,4 +1,4 @@
-const url = "sci_fi_movies_updated.csv";
+const url = "https://assets.codepen.io/1940996/sci_fi_movies_updated.csv";
 
 // Scatterplot container dimensions
 const w = 500;
