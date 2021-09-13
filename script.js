@@ -51,9 +51,9 @@ d3.csv(url, function (data) {
   const disneyRT = getPlatformAvg("DisneyPlus", "RT");
   
   document.getElementById("imdb-kpi").innerHTML = "IMDb Avg: Netflix - " + netflixIMDb 
-    + " Hulu: " + huluIMDb + " Prime: " + primeIMDb + " Disney: " + disneyIMDb;
+    + " Hulu - " + huluIMDb + " Prime - " + primeIMDb + " Disney - " + disneyIMDb;
   document.getElementById("rt-kpi").innerHTML = "RT Avg: Netflix - " + netflixRT 
-    + " Hulu: " + huluRT + " Prime: " + primeRT + " Disney: " + disneyRT;
+    + " Hulu - " + huluRT + " Prime - " + primeRT + " Disney - " + disneyRT;
  
    // Axis max and min
   const xmax = d3.max(data, d => d.IMDb);
