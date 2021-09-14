@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" >
-  <head>
-    <meta charset="UTF-8">
-    <meta property="og:title" content="Sci-Fi Streaming Dashboard - D3.js"/>
-    <meta property="og:image" content="https://github.com/pmbaker712/scifi-streaming-dashboard-d3/blob/main/scifi-streaming-dashboard-d3.JPG?raw=true"/>
-    <meta property="og:description" content="Sci-Fi Streaming Dashboard - D3.js"/>
-    <meta property="og:url" content="https://pmbaker712.github.io/scifi-streaming-dashboard-d3/"/>
-    <title id="title">Sci-Fi Streaming Dashboard</title>
-	<link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="header">
-      <h1>Sci-Fi Streaming Dashboard</h1>
-      <h3>
-        <span class="button" id="netflix">Netflix</span>
-        <span class="button" id="hulu">Hulu</span>
-        <span class="button" id="prime">Prime Video</span>
-        <span class="button" id="disney">Disney+</span>
-	<a href="https://github.com/pmbaker712/scifi-streaming-dashboard-d3" target="_blank">
-          <img id="github" src="https://image.flaticon.com/icons/png/512/25/25231.png">
-        </a>
-      </h3>
-      <p id="imdb-kpi"></p>
-      <p id="rt-kpi"></p>
-    </div>
-    <div class="main-container">
-      <div class="container-left">
+   <head>
+      <meta charset="UTF-8">
+      <meta property="og:title" content="Sci-Fi Streaming Dashboard - D3.js"/>
+      <meta property="og:image" content="https://github.com/pmbaker712/scifi-streaming-dashboard-d3/blob/main/scifi-streaming-dashboard-d3.JPG?raw=true"/>
+      <meta property="og:description" content="Sci-Fi Streaming Dashboard - D3.js"/>
+      <meta property="og:url" content="https://pmbaker712.github.io/scifi-streaming-dashboard-d3/"/>
+      <title id="title">Sci-Fi Streaming Dashboard</title>
+      <link rel="stylesheet" href="./style.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+   </head>
+   <body>
+      <div class="header">
+         <h1>Sci-Fi Streaming Dashboard</h1>
+         <h3>
+            <span class="button" id="netflix">Netflix</span>
+            <span class="button" id="hulu">Hulu</span>
+            <span class="button" id="prime">Prime Video</span>
+            <span class="button" id="disney">Disney+</span>
+            <a href="https://github.com/pmbaker712/scifi-streaming-dashboard-d3" target="_blank">
+            <img id="github" src="https://image.flaticon.com/icons/png/512/25/25231.png">
+            </a>
+         </h3>
+         <p id="imdb-kpi"></p>
+         <p id="rt-kpi"></p>
       </div>
-      <div class="container-right">
-        <p>Mouseover scatterplot to see details here:<p>
-        <div id="tooltip">
-        </div>
+      <div class="main-container">
+         <div class="container-left">
+            <span class ="input">
+            From Year: <input id="fromYear" type="number" placeholder="1914"></input> 
+            To Year: <input id="toYear" type="number" placeholder="2021"></input>
+            <span class="button" id="yearBtn">OK</span>
+            </span>	      
+         </div>
+         <div class="container-right">
+            <p>Mouseover scatterplot to see details here:
+            <p>
+            <div id="tooltip">
+            </div>
+         </div>
       </div>
-    </div>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-	<script  src="./script.js"></script>
-  </body>
+      <script src="https://d3js.org/d3.v4.min.js"></script>
+      <script  src="./script.js"></script>
+   </body>
 </html>
