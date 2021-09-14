@@ -50,6 +50,21 @@ p {
   background-color: #aaaaff; 
 }
 
+#github {
+  position: relative;
+  top: 5px;
+  width: 26px;
+  height: 26px;
+  padding: 1px;
+  background-color: white;
+  border: 2px solid white; 
+  vertical-align: bottom;
+}
+
+#github:hover {
+  background-color: yellow;
+}
+
 .header {
   padding: 10px;
   width: 800px;
