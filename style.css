@@ -6,7 +6,7 @@ h1 {
   font-family: 'Orbitron', sans-serif;  
   text-align: center;
   color: #99ffff;
-  margin-top: 2px;
+  margin: 3px;
 }
 
 h3 {
@@ -25,6 +25,33 @@ p {
   color: white;
   text-align: center;
   margin: 3px;
+}
+
+footer {
+height: 50px;
+background-color: #555555;
+width: 100%;
+}
+
+input {
+  width: 55px;
+}
+
+.input {
+  font-family: courier;
+  font-weight: bold;
+  color: white;
+  display:table;
+  margin: 0px auto;
+}
+
+#yearBtn {
+  margin-left: 20px;
+  background-color: #dddddd;
+}
+
+#yearBtn:hover {
+  background-color: #cccccc;
 }
 
 .button {
@@ -78,7 +105,7 @@ p {
 }
 
 #github:hover {
-  background-color: #bbbbbb;
+  background-color: #bbbbbb
 }
 
 .header {
@@ -104,6 +131,14 @@ p {
   border: 1px solid #99ffff;
 }
 
+svg {
+  position: relative;
+  top: -5px;
+  left: 15px;
+  padding: 0px;
+  margin: 0px auto;
+}
+
 .container-right {
   height: 90%;
   width: 25%;
@@ -116,8 +151,8 @@ p {
 
 .square:hover {
   fill: white;
-  height: 10px;
   width: 10px;
+  height: 10px;
 }
 
 #tooltip {
