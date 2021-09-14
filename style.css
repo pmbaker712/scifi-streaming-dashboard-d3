@@ -39,15 +39,32 @@ p {
   background-color: #ff7777; 
 }
 
+#netflix:hover {
+  background-color: #ee6666; 
+}
+
 #hulu {
   background-color: #55ff55; 
+}
+
+#hulu:hover {
+  background-color: #44ee44; 
 }
 
 #prime {
   background-color: #99ffff; 
 }
+
+#prime:hover {
+  background-color: #88eeee; 
+}
+
 #disney {
   background-color: #aaaaff; 
+}
+
+#disney:hover {
+  background-color: #9999ee; 
 }
 
 #github {
@@ -97,8 +114,8 @@ p {
   border: 1px solid #99ffff;
 }
 
-.bar:hover {
-  fill: #ee9999;
+.square:hover {
+  fill: white;
 }
 
 #tooltip {
