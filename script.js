@@ -1,4 +1,4 @@
-const url = "https://assets.codepen.io/1940996/sci_fi_movies_updated.csv";
+const url = "sci_fi_movies_updated.csv";
 
 // Scatterplot container dimensions
 const w = 500;
@@ -105,7 +105,7 @@ d3.csv(url, function (data) {
               "Year: " + d.Year + "<br>" +
               "Director: " + d.Directors + "<br>" +
               "IMDb Score: " + d.IMDb + "<br>" +
-              "Rotten Tomates Score: " + d.RottenTomatoes + "<br><br>" +
+              "Rotten Tomatoes Score: " + d.RottenTomatoes + "<br><br>" +
               "Platforms: " + d.Platforms + "<br>")
         .transition()
         .duration(200)
