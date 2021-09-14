@@ -116,6 +116,8 @@ p {
 
 .square:hover {
   fill: white;
+  height: 10px;
+  width: 10px;
 }
 
 #tooltip {
