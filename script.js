@@ -60,9 +60,9 @@ d3.csv(url, function(data) {
         });
 
         if (scoreType == "IMDb") {
-            avg = d3.format(".2f")(d3.mean(platformData, d => d.IMDb));
+            avg = d3.format(".1f")(d3.mean(platformData, d => d.IMDb));
         } else if (scoreType == "RT") {
-            avg = d3.format(".2f")(d3.mean(platformData, d => d.RottenTomatoes));
+            avg = d3.format(".1f")(d3.mean(platformData, d => d.RottenTomatoes));
         };
         return avg;
     };
@@ -211,7 +211,8 @@ d3.csv(url, function(data) {
 
     // Function to set button behavior
     function button(buttonObject, name, color) {
-
+        
+        // When platform button is selected (default value)
         d3.select(buttonObject[name].id)
             .on("click", function() {
                 if (buttonObject[name].value === true) {
@@ -223,7 +224,8 @@ d3.csv(url, function(data) {
                         return d[buttonObject[name].column] == 0
                     });
                     updateChart(filteredData);
-
+                   
+                // When platform button is deselected
                 } else if (buttonObject[name].value === false) {
                     d3.select(buttonObject[name].id)
                         .style("background-color", color)
@@ -238,7 +240,8 @@ d3.csv(url, function(data) {
                         })
                     );
                     updateChart(filteredData);
-
+                
+                // Behavior of year filter
                 } else if (buttonObject[name].value == "yearRange") {
 
                     buttonObject.year.fromYear = document.getElementById("fromYear").value;
