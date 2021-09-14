@@ -14,16 +14,42 @@ const lightblue = "#9999ff";
 const darkyellow = "#cccc00";
 const lightcyan = "#99ffff"
 const darkgray = "#222222";
-
-// Initialize button values
-let netflixBtn = true;
-let huluBtn = true;
-let primeBtn = true;
-let disneyBtn = true;
+const lightgray = "#dddddd";
 
 d3.csv(url, function(data) {
 
-    // Initialized filtered data as full data
+    // Initialize button object
+    let buttons = {
+        netflix: {
+            id: "#netflix",
+            column: "Netflix",
+            value: true
+        },
+        hulu: {
+            id: "#hulu",
+            column: "Hulu",
+            value: true
+        },
+        prime: {
+            id: "#prime",
+            column: "PrimeVideo",
+            value: true
+        },
+        disney: {
+            id: "#disney",
+            column: "DisneyPlus",
+            value: true
+        },
+        year: {
+            id: "#yearBtn",
+            column: "Year",
+            value: "yearRange",
+            fromYear: 1914,
+            toYear: 2021
+        }
+    };
+
+    // Initialize filtered data as full data
     let filteredData = data;
 
     // Function to calculate platform average scores
@@ -34,9 +60,9 @@ d3.csv(url, function(data) {
         });
 
         if (scoreType == "IMDb") {
-            avg = d3.format(".1f")(d3.mean(platformData, d => d.IMDb));
+            avg = d3.format(".2f")(d3.mean(platformData, d => d.IMDb));
         } else if (scoreType == "RT") {
-            avg = d3.format(".1f")(d3.mean(platformData, d => d.RottenTomatoes));
+            avg = d3.format(".2f")(d3.mean(platformData, d => d.RottenTomatoes));
         };
         return avg;
     };
@@ -113,7 +139,7 @@ d3.csv(url, function(data) {
                     "Year: " + d.Year + "<br>" +
                     "Director: " + d.Directors + "<br>" +
                     "IMDb Score: " + d.IMDb + "<br>" +
-                    "Rotten Tomatoes Score: " + d.RottenTomatoes + "<br><br>" +
+                    "Rotten Tomates Score: " + d.RottenTomatoes + "<br><br>" +
                     "Platforms: " + d.Platforms + "<br>")
                 .transition()
                 .duration(200)
@@ -150,7 +176,7 @@ d3.csv(url, function(data) {
                         "Year: " + d.Year + "<br>" +
                         "Director: " + d.Directors + "<br>" +
                         "IMDb Score: " + d.IMDb + "<br>" +
-                        "Rotten Tomates Score: " + d.RottenTomatoes + "<br><br>" +
+                        "Rotten Tomatoes Score: " + d.RottenTomatoes + "<br><br>" +
                         "Platforms: " + d.Platforms + "<br>")
                     .transition()
                     .duration(200)
@@ -184,39 +210,64 @@ d3.csv(url, function(data) {
     };
 
     // Function to set button behavior
-    function button(buttonId, buttonVar, column, color) {
+    function button(buttonObject, name, color) {
 
-        d3.select(buttonId)
+        d3.select(buttonObject[name].id)
             .on("click", function() {
-                if (buttonVar == true) {
-                    d3.select(buttonId)
+                if (buttonObject[name].value === true) {
+                    d3.select(buttonObject[name].id)
                         .style("background-color", "#202020")
                         .style("color", color);
-                    buttonVar = false;
+                    buttonObject[name].value = false;
                     filteredData = filteredData.filter(function(d) {
-                        return d[column] == 0
+                        return d[buttonObject[name].column] == 0
                     });
                     updateChart(filteredData);
-                } else if (buttonVar == false) {
-                    d3.select(buttonId)
+
+                } else if (buttonObject[name].value === false) {
+                    d3.select(buttonObject[name].id)
                         .style("background-color", color)
                         .style("color", "black");
-                    buttonVar = true;
+                    buttonObject[name].value = true;
                     filteredData = filteredData.concat(
                         data.filter(function(d) {
-                            return (d[column] == 1 && !filteredData.includes(d))
+                            return (d[buttonObject[name].column] == 1 &&
+                                d["Year"] >= buttonObject.year.fromYear &&
+                                d["Year"] <= buttonObject.year.toYear &&
+                                !filteredData.includes(d))
                         })
                     );
+                    updateChart(filteredData);
+
+                } else if (buttonObject[name].value == "yearRange") {
+
+                    buttonObject.year.fromYear = document.getElementById("fromYear").value;
+                    buttonObject.year.toYear = document.getElementById("toYear").value;
+
+                    filteredData = data.filter(function(d) {
+                        return (d["Year"] >= buttonObject.year.fromYear &&
+                            d["Year"] <= buttonObject.year.toYear)
+                    });
+                    for (let key in buttonObject) {
+                        filteredData = filteredData.filter(function(d) {
+                            if (buttonObject[key].value === false) {
+                                return d[buttonObject[key].column] == 0
+                            } else {
+                                return d
+                            }
+                        });
+                    };
                     updateChart(filteredData);
                 };
             });
     };
 
     // Set button behavior
-    button("#netflix", netflixBtn, "Netflix", lightred);
-    button("#hulu", huluBtn, "Hulu", lightgreen);
-    button("#prime", primeBtn, "PrimeVideo", lightcyan);
-    button("#disney", disneyBtn, "DisneyPlus", lightblue);
+    button(buttons, "netflix", lightred);
+    button(buttons, "hulu", lightgreen);
+    button(buttons, "prime", lightcyan);
+    button(buttons, "disney", lightblue);
+    button(buttons, "year", lightgray);
 
     // Create axes
     const xAxis = d3.axisBottom(xScale)
