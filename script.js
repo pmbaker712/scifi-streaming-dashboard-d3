@@ -104,52 +104,6 @@ d3.csv(url, function(data) {
         .attr("width", w)
         .attr("height", h);
 
-    // Draw initial chart
-    svg.selectAll("rect")
-        .data(filteredData)
-        .enter()
-        .append("rect")
-        .attr("class", "square")
-        .attr("x", d => xScale(d.IMDb))
-        .attr("y", d => yScale(d.RottenTomatoes))
-        .attr("width", size)
-        .attr("height", size)
-        .attr("fill", function(d) {
-            // Dark yellow color for multiple platforms
-            if (parseInt(d.Netflix) +
-                parseInt(d.Hulu) +
-                parseInt(d.PrimeVideo) +
-                parseInt(d.DisneyPlus) > 1) {
-                return darkyellow;
-            } else if (d.Netflix == 1) {
-                return lightred;
-            } else if (d.Hulu == 1) {
-                return lightgreen;
-            } else if (d.PrimeVideo == 1) {
-                return lightcyan;
-            } else if (d.DisneyPlus == 1) {
-                return lightblue;
-            };
-        })
-        // Tooltip behavior
-        .on("mouseover", function(d) {
-
-            d3.select("#tooltip")
-                .html("Title: " + d.Title + "<br>" +
-                    "Year: " + d.Year + "<br>" +
-                    "Director: " + d.Directors + "<br>" +
-                    "IMDb Score: " + d.IMDb + "<br>" +
-                    "Rotten Tomates Score: " + d.RottenTomatoes + "<br><br>" +
-                    "Platforms: " + d.Platforms + "<br>")
-                .transition()
-                .duration(200)
-                .style("opacity", 1)
-        })
-        .on("mouseout", function() {
-            d3.select("#tooltip")
-                .style("opacity", 0);
-        });
-
     // Function to update chart with filtered data 
     function updateChart(newData) {
 
@@ -203,11 +157,12 @@ d3.csv(url, function(data) {
                     return lightcyan;
                 } else if (d.DisneyPlus == 1) {
                     return lightblue;
-                } else {
-                    return "gray";
                 };
             });
     };
+    
+    // Draw initial chart
+    updateChart(filteredData);
 
     // Function to set button behavior
     function button(buttonObject, name, color) {
